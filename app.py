@@ -14,4 +14,16 @@ if hist_button : #al hacer click en el boton
 
     #mostrar un grafico Plotly interactivo
     st.plotly_chart(fig, use_container_width = True)
-    
+
+    fig2 = px.scatter(car_data, x="odometer", y="price") # crear un gráfico de dispersión
+    fig2.show()
+
+build_histogram = st.checkbox('Construir un histograma')
+
+if build_histogram: # si la casilla de verificación está seleccionada
+    st.write('Construir un histograma para la columna odómetro')
+
+    fig3 = px.histogram(car_data, x = 'odometer')
+
+    #mostrar un grafico Plotly interactivo
+    st.plotly_chart(fig3, use_container_width = True)
